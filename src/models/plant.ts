@@ -1,4 +1,5 @@
 import { Connection } from "pg";
+
 import client from "../database";
 
 export type plant = {
@@ -35,9 +36,9 @@ export class PlantStore {
   async create(p: plant): Promise<plant> {
     try {
       const sql =
-        "INSERT INTO plants (name, description) VALUES($1, $2) RETURNING *";
+        "INSERT INTO plants (id, name, description) VALUES($1, $2, $3) RETURNING *";
       const conn = await client.connect();
-      const result = await conn.query(sql, [p.name, p.description]);
+      const result = await conn.query(sql, [p.id, p.name, p.description]);
       const plant = result.rows[0];
       conn.release();
       return plant;

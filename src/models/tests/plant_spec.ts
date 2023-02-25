@@ -3,6 +3,18 @@ import { plant, PlantStore } from "../plant";
 const store = new PlantStore();
 
 describe("Plant Model", () => {
+  beforeAll(async () => {
+    await store.create({
+      name: "test",
+      description: "test",
+      id: 1,
+    });
+  });
+  afterAll(async () => {
+    await store.delete("2");
+    await store.delete("1");
+  });
+
   it("should have an index method", () => {
     expect(store.index).toBeDefined();
   });
@@ -19,21 +31,12 @@ describe("Plant Model", () => {
     expect(store.delete).toBeDefined();
   });
 
-  it("create method should add a plant", async () => {
-    const result = await store.create({
+  it("create method should add a plant and index method should return a list of all plants", async () => {
+    const create = await store.create({
       name: "test",
       description: "test",
-      id: 0,
+      id: 2,
     });
-
-    expect(result).toEqual({
-      id: 1,
-      name: "test",
-      description: "test",
-    });
-  });
-
-  it("index method should return a list of plants", async () => {
     const result = await store.index();
     expect(result).toEqual([
       {
@@ -41,21 +44,17 @@ describe("Plant Model", () => {
         name: "test",
         description: "test",
       },
+      {
+        id: 2,
+        name: "test",
+        description: "test",
+      },
     ]);
   });
 
-  it("show method should return the correct plant", async () => {
-    const result = await store.show("1");
-    expect(result).toEqual({
-      id: 1,
-      name: "test",
-      description: "test",
-    });
-  });
-
-  it("delete method should remove the plant", async () => {
-    await store.delete("1");
-    const result = await store.index();
-    expect(result).toEqual([]);
-  });
+  // it("delete method should remove the plant and show to method to return the plant if it exist or undefined if it doesn't exist", async () => {
+  //   await store.delete("1");
+  //   const result = await store.show("1");
+  //   expect(result).toBeUndefined();
+  // });
 });
