@@ -43,8 +43,8 @@ there is already a migration folder that contains the structure(tables) of the d
 the reviewer should install db-migrate with all other dependencies of the project
 
 ### how to setup the project
-1- open the project
-2- in the terminal while inside the project folder write " npm install"
-3- enter psql terminal using the command "psql -U pgress" then create a database with the name "storefront" using the command "create database storefront"
-4- in the project terminal write "db-migrate up" to structure the database and create all the required tables
-5- in the prject terminal write "npm test" to test all the models, services, handlers, endpoints in one command
+- open the project
+- in the terminal while inside the project folder write " npm install"
+- enter psql terminal using the command "psql -U pgress" then create a database with the name "storefront" using the command "create database storefront"
+- in the project terminal write "db-migrate up" to structure the database and create all the required tables
+- in the prject terminal write "npm test" to test all the models, services, handlers, endpoints in one command
