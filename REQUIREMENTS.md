@@ -43,10 +43,10 @@ These are the notes from a meeting with the frontend developer that describe wha
 -                                     Table "public.user_info"
 -                 Column   |          Type          | Collation | Nullable |                Default                
 -           ________________________________________________________________________________________________
--           id        | integer                |           | not null | nextval('user_info_id_seq'::regclass)
--           firstname | character varying(255) |           | not null | 
--           lastname  | character varying(255) |           | not null | 
--           password  | character varying(255) |           | not null | 
+-                id        | integer                |           | not null | nextval('user_info_id_seq'::regclass)
+-                firstname | character varying(255) |           | not null | 
+-                lastname  | character varying(255) |           | not null | 
+-                password  | character varying(255) |           | not null | 
 -           Indexes:
 -             "user_info_pkey" PRIMARY KEY, btree (id)
 -             Referenced by:
