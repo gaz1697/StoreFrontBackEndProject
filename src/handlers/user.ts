@@ -12,10 +12,12 @@ const create = async (req: Request, res: Response) => {
       password: req.body.password,
     };
     const newUser = await store.create(user);
-    res.json(newUser);
+
+    var token = jwt.sign({ user: user }, process.env.TOKEN_SECRET!);
+    res.json(token);
   } catch (err) {
     res.status(400);
-    res.json("User already exists");
+    res.json("there was a problem creating the user");
   }
 };
 
@@ -69,6 +71,7 @@ const user_routes = (app: express.Application) => {
   app.get("/users", index);
   app.get("/users/:id", show);
   app.post("/users", create);
+  //additional routes not required for the project
   app.delete("/users/:id", remove);
   app.post("/users/authenticate", authenticate);
 };

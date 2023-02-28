@@ -73,4 +73,14 @@ export class UserStore {
     }
     return null;
   }
+
+  async update(u: user): Promise<user> {
+    const sql =
+      "UPDATE User_info SET firstname=($1), lastname=($2) WHERE id=($3)";
+    const conn = await client.connect();
+    const result = await conn.query(sql, [u.firstname, u.lastname, u.id]);
+    const user = result.rows[0];
+    conn.release();
+    return user;
+  }
 }
