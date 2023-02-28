@@ -39,7 +39,7 @@ These are the notes from a meeting with the frontend developer that describe wha
 - firstName
 - lastName
 - password
-- #### table user_info
+#### table user_info
                                      Table "public.user_info"
                  Column   |          Type          | Collation | Nullable |                Default                
            ________________________________________________________________________________________________
@@ -59,3 +59,18 @@ These are the notes from a meeting with the frontend developer that describe wha
 - quantity of each product in the order
 - user_id
 - status of order (active or complete)
+
+#### table orders
+                                          Table "public.orders"
+                       Column   |          Type          | Collation | Nullable | Default 
+           ________________________________________________________________________________________________
+                     id         | integer                |           | not null | 
+                     user_id    | integer                |           | not null | 
+                     product_id | integer                |           | not null | 
+                     quantity   | integer                |           | not null | 
+                     status     | character varying(255) |           | not null | 
+          Indexes:
+                  "orders_pkey" PRIMARY KEY, btree (id, product_id)
+          Foreign-key constraints:
+                  "orders_product_id_fkey" FOREIGN KEY (product_id) REFERENCES products(id)
+                   "orders_user_id_fkey" FOREIGN KEY (user_id) REFERENCES user_info(id)
