@@ -2,12 +2,13 @@
   "name": "storefront_backend",
   "version": "0.1.0",
   "description": "## Getting Started",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "build": "npx tsc",
-    "start": "node build/server.js",
-    "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
-    "test": "db-migrate db:create storefronttest && npx tsc &&  db-migrate --env test up && ENV=test  jasmine-ts && db-migrate db:drop storefronttest",
+    "start": "node build/index.js",
+    "watch": "tsc-watch --esModuleInterop src/index.ts --outDir ./dist --onSuccess \"node ./dist/index.js\"",
+    "test": "db-migrate db:create storefronttest && npx tsc &&  db-migrate --env test up && ENV=test  jasmine-ts && npm run test/endpoints && db-migrate db:drop storefronttest",
+    "test/endpoints": "ENV=test jasmine build/_test_/handlers/order.js jasmine build/_test_/handlers/product.js jasmine build/_test_/handlers/user.js jasmine build/_test_/handlers/dashboard.js jasmine build/_test_/index.js",
     "tsc": "tsc"
   },
   "author": "Udacity",
@@ -22,6 +23,7 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "pg": "^8.5.1",
+    "supertest": "^6.3.3",
     "ts-node-dev": "^2.0.0",
     "typescript": "^4.1.3"
   },
@@ -32,6 +34,7 @@
     "@types/jasmine": "^3.6.3",
     "@types/jsonwebtoken": "^9.0.1",
     "@types/pg": "^7.14.7",
+    "@types/supertest": "^2.0.12",
     "jasmine": "^3.99.0",
     "jasmine-spec-reporter": "^6.0.0",
     "jasmine-ts": "^0.3.0",
