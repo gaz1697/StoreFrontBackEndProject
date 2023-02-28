@@ -2,7 +2,7 @@
 
 ## how to set up the database and local enviroment
 
-the review should create a .env folder that includes the following information : 
+the reviewer should create a .env folder that includes the following information : 
 - POSTGRES_HOST
 - POSTGRES_PORT=3000
 - POSTGRES_USER
