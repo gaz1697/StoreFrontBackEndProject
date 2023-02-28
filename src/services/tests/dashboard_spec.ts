@@ -1,4 +1,4 @@
-import { dashboardQ } from "../../services/dashboard";
+import { dashboardQ } from "../dashboard";
 
 const dashboard = new dashboardQ();
 
