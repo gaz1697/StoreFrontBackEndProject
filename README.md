@@ -1,29 +1,29 @@
 # Storefront Backend Project
 ## packages
-  bcrypt": "^5.1.0",
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "db-migrate": "^0.11.13",
-    "db-migrate-pg": "^1.2.2",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "jsonwebtoken": "^9.0.0",
-    "pg": "^8.5.1",
-    "supertest": "^6.3.3",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^4.1.3"
-    "@types/bcrypt": "^5.0.0",
-    "@types/cors": "^2.8.13",
-    "@types/express": "^4.17.9",
-    "@types/jasmine": "^3.6.3",
-    "@types/jsonwebtoken": "^9.0.1",
-    "@types/pg": "^7.14.7",
-    "@types/supertest": "^2.0.12",
-    "jasmine": "^3.99.0",
-    "jasmine-spec-reporter": "^6.0.0",
-    "jasmine-ts": "^0.3.0",
-    "ts-node": "^10.9.1",
-    "tsc-watch": "^4.2.9"
+-    "bcrypt": "^5.1.0",
+-    "body-parser": "^1.19.0",
+-    "cors": "^2.8.5",
+-    "db-migrate": "^0.11.13",
+-    "db-migrate-pg": "^1.2.2",
+-    "dotenv": "^16.0.3",
+-    "express": "^4.18.2",
+-    "jsonwebtoken": "^9.0.0",
+-    "pg": "^8.5.1",
+-    "supertest": "^6.3.3",
+-    "ts-node-dev": "^2.0.0",
+-    "typescript": "^4.1.3"
+-    "@types/bcrypt": "^5.0.0",
+-    "@types/cors": "^2.8.13",
+-    "@types/express": "^4.17.9",
+-    "@types/jasmine": "^3.6.3",
+-    "@types/jsonwebtoken": "^9.0.1",
+-    "@types/pg": "^7.14.7",
+-    "@types/supertest": "^2.0.12",
+-    "jasmine": "^3.99.0",
+-    "jasmine-spec-reporter": "^6.0.0",
+-    "jasmine-ts": "^0.3.0",
+-    "ts-node": "^10.9.1",
+-    "tsc-watch": "^4.2.9"
   
 ## how to set up the database and local enviroment
 
