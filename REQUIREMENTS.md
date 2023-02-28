@@ -32,6 +32,18 @@ These are the notes from a meeting with the frontend developer that describe wha
 - id
 - name
 - price
+#### table products
+                                    Table "public.products"
+                   Column |          Type          | Collation | Nullable |               Default                
+           ________________________________________________________________________________________________
+                   id     | integer                |           | not null | nextval('products_id_seq'::regclass)
+                   name   | character varying(255) |           | not null | 
+                   price  | integer                |           | not null | 
+           Indexes:
+                 "products_pkey" PRIMARY KEY, btree (id)
+           Referenced by:
+                 TABLE "orders" CONSTRAINT "orders_product_id_fkey" FOREIGN KEY (product_id) REFERENCES products(id)
+
 
 #### User
 
