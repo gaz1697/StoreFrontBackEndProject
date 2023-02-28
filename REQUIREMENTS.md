@@ -40,17 +40,17 @@ These are the notes from a meeting with the frontend developer that describe wha
 - lastName
 - password
 - #### table user_info
--                                     Table "public.user_info"
--                 Column   |          Type          | Collation | Nullable |                Default                
--           ________________________________________________________________________________________________
--                id        | integer                |           | not null | nextval('user_info_id_seq'::regclass)
--                firstname | character varying(255) |           | not null | 
--                lastname  | character varying(255) |           | not null | 
--                password  | character varying(255) |           | not null | 
--           Indexes:
--             "user_info_pkey" PRIMARY KEY, btree (id)
--             Referenced by:
--             TABLE "orders" CONSTRAINT "orders_user_id_fkey" FOREIGN KEY (user_id) REFERENCES user_info(id)
+                                     Table "public.user_info"
+                 Column   |          Type          | Collation | Nullable |                Default                
+           ________________________________________________________________________________________________
+                id        | integer                |           | not null | nextval('user_info_id_seq'::regclass)
+                firstname | character varying(255) |           | not null | 
+                lastname  | character varying(255) |           | not null | 
+                password  | character varying(255) |           | not null | 
+           Indexes:
+             "user_info_pkey" PRIMARY KEY, btree (id)
+             Referenced by:
+             TABLE "orders" CONSTRAINT "orders_user_id_fkey" FOREIGN KEY (user_id) REFERENCES user_info(id)
 
 #### Orders
 
