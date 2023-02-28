@@ -46,9 +46,9 @@ class PlantStore {
     create(p) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const sql = "INSERT INTO plants (name, description) VALUES($1, $2) RETURNING *";
+                const sql = "INSERT INTO plants (id, name, description) VALUES($1, $2, $3) RETURNING *";
                 const conn = yield database_1.default.connect();
-                const result = yield conn.query(sql, [p.name, p.description]);
+                const result = yield conn.query(sql, [p.id, p.name, p.description]);
                 const plant = result.rows[0];
                 conn.release();
                 return plant;
