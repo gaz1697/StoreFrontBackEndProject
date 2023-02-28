@@ -24,11 +24,12 @@ const create = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             password: req.body.password,
         };
         const newUser = yield store.create(user);
-        res.json(newUser);
+        var token = jsonwebtoken_1.default.sign({ user: user }, process.env.TOKEN_SECRET);
+        res.json(token);
     }
     catch (err) {
         res.status(400);
-        res.json("User already exists");
+        res.json("there was a problem creating the user");
     }
 });
 const index = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -83,6 +84,7 @@ const user_routes = (app) => {
     app.get("/users", index);
     app.get("/users/:id", show);
     app.post("/users", create);
+    //additional routes not required for the project
     app.delete("/users/:id", remove);
     app.post("/users/authenticate", authenticate);
 };

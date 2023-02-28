@@ -14,14 +14,14 @@ const store = new user_1.UserStore();
 describe("User Model", () => {
     beforeAll(() => __awaiter(void 0, void 0, void 0, function* () {
         yield store.create({
-            id: 1,
+            id: 2,
             firstname: "test",
             lastname: "test",
             password: "test",
         });
     }));
     afterAll(() => __awaiter(void 0, void 0, void 0, function* () {
-        yield store.delete("1");
+        yield store.delete("2");
     }));
     it("should have an index method", () => {
         expect(store.index).toBeDefined();
@@ -37,24 +37,24 @@ describe("User Model", () => {
     });
     it("index method should return a list of users", () => __awaiter(void 0, void 0, void 0, function* () {
         const result = yield store.index();
-        expect(result[0].id).toEqual(1);
+        expect(result[0].id).toEqual(2);
         expect(result[0].firstname).toEqual("test");
         expect(result[0].lastname).toEqual("test");
     }));
     it("show method should return the correct user", () => __awaiter(void 0, void 0, void 0, function* () {
-        const result = yield store.show("1");
-        expect(result.id).toEqual(1);
+        const result = yield store.show("2");
+        expect(result.id).toEqual(2);
         expect(result.firstname).toEqual("test");
         expect(result.lastname).toEqual("test");
     }));
     it("authenticate method should return the user", () => __awaiter(void 0, void 0, void 0, function* () {
-        const result = yield store.authenticate("1", "test");
-        expect(result.id).toEqual(1);
+        const result = yield store.authenticate("2", "test");
+        expect(result.id).toEqual(2);
         expect(result.firstname).toEqual("test");
         expect(result.lastname).toEqual("test");
     }));
     it("authenticate method should return null", () => __awaiter(void 0, void 0, void 0, function* () {
-        const result = yield store.authenticate("1", "wrong");
+        const result = yield store.authenticate("2", "wrong");
         expect(result).toEqual(null);
     }));
 });

@@ -83,5 +83,15 @@ class UserStore {
             return null;
         });
     }
+    update(u) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const sql = "UPDATE User_info SET firstname=($1), lastname=($2) WHERE id=($3)";
+            const conn = yield database_1.default.connect();
+            const result = yield conn.query(sql, [u.firstname, u.lastname, u.id]);
+            const user = result.rows[0];
+            conn.release();
+            return user;
+        });
+    }
 }
 exports.UserStore = UserStore;
