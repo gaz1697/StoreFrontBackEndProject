@@ -45,6 +45,7 @@ the reviewer should install db-migrate with all other dependencies of the projec
 ## how to setup the project
 - open the project
 - in the terminal while inside the project folder write  "npm install"
+- create the .env file and fill it with the mentioned information
 - enter psql terminal using the command "psql -U pgress" then create a database with the name "storefront" using the command "create database storefront"
 - in the project terminal write "db-migrate up" to structure the database and create all the required tables
 - in the prject terminal write "npm test" to test all the models, services, handlers, endpoints in one command
