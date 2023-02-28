@@ -42,7 +42,7 @@ the reviewer should create a .env folder that includes the following information
 there is already a migration folder that contains the structure(tables) of the database
 the reviewer should install db-migrate with all other dependencies of the project
 
-### how to setup the project
+## how to setup the project
 - open the project
 - in the terminal while inside the project folder write " npm install"
 - enter psql terminal using the command "psql -U pgress" then create a database with the name "storefront" using the command "create database storefront"
