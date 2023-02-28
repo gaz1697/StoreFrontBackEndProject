@@ -25,7 +25,7 @@
 -    "ts-node": "^10.9.1",
 -    "tsc-watch": "^4.2.9"
   
-## how to set up the database and local enviroment
+## enviroment variables
 
 the reviewer should create a .env folder that includes the following information : 
 - POSTGRES_HOST=0.0.0.0
@@ -41,3 +41,10 @@ the reviewer should create a .env folder that includes the following information
 
 there is already a migration folder that contains the structure(tables) of the database
 the reviewer should install db-migrate with all other dependencies of the project
+
+### how to setup the project
+1- open the project
+2- in the terminal while inside the project folder write " npm install"
+3- enter psql terminal using the command "psql -U pgress" then create a database with the name "storefront" using the command "create database storefront"
+4- in the project terminal write "db-migrate up" to structure the database and create all the required tables
+5- in the prject terminal write "npm test" to test all the models, services, handlers, endpoints in one command
