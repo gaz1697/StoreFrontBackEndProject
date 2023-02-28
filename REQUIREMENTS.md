@@ -33,17 +33,16 @@ These are the notes from a meeting with the frontend developer that describe wha
 - name
 - price
 
-                                    Table "public.product"
-
-  Column | Type | Collation | Nullable | Default  
-  --------+------------------------+-----------+----------+-------------------------------------
-  id | integer | | not null | nextval('product_id_seq'::regclass)
-  name | character varying(100) | | not null |
-  price | numeric(10,2) | | not null |
-  Indexes:
-  "product_pkey" PRIMARY KEY, btree (id)
-  Referenced by:
-  TABLE ""Order"" CONSTRAINT "Order_product_id_fkey" FOREIGN KEY (product_id) REFERENCES product(id)
+                                    Table "public.products"
+ Column |          Type          | Collation | Nullable |               Default                
+--------+------------------------+-----------+----------+--------------------------------------
+ id     | integer                |           | not null | nextval('products_id_seq'::regclass)
+ name   | character varying(255) |           | not null | 
+ price  | integer                |           | not null | 
+Indexes:
+    "products_pkey" PRIMARY KEY, btree (id)
+Referenced by:
+    TABLE "orders" CONSTRAINT "orders_product_id_fkey" FOREIGN KEY (product_id) REFERENCES products(id)
 
 #### User
 
@@ -52,18 +51,17 @@ These are the notes from a meeting with the frontend developer that describe wha
 - lastName
 - password
 
-                                       Table "public.user_info"
-
-  Column | Type | Collation | Nullable | Default  
-  -----------+------------------------+-----------+----------+---------------------------------------
-  id | integer | | not null | nextval('user_info_id_seq'::regclass)
-  firstname | character varying(50) | | not null |
-  lastname | character varying(50) | | not null |
-  password | character varying(255) | | not null |
-  Indexes:
-  "user_info_pkey" PRIMARY KEY, btree (id)
-  Referenced by:
-  TABLE ""Order"" CONSTRAINT "Order_user_id_fkey" FOREIGN KEY (user_id) REFERENCES user_info(id)
+                                      Table "public.user_info"
+  Column   |          Type          | Collation | Nullable |                Default                
+-----------+------------------------+-----------+----------+---------------------------------------
+ id        | integer                |           | not null | nextval('user_info_id_seq'::regclass)
+ firstname | character varying(255) |           | not null | 
+ lastname  | character varying(255) |           | not null | 
+ password  | character varying(255) |           | not null | 
+Indexes:
+    "user_info_pkey" PRIMARY KEY, btree (id)
+Referenced by:
+    TABLE "orders" CONSTRAINT "orders_user_id_fkey" FOREIGN KEY (user_id) REFERENCES user_info(id)
 
 #### Orders
 
@@ -73,17 +71,16 @@ These are the notes from a meeting with the frontend developer that describe wha
 - user_id
 - status of order (active or complete)
 
-                                        Table "public.Order"
-
-  Column | Type | Collation | Nullable | Default  
-  ------------+-----------------------+-----------+----------+-------------------------------------
-  id | integer | | not null | nextval('"Order_id_seq"'::regclass)
-  product_id | integer | | not null |
-  quantity | integer | | not null |
-  user_id | integer | | not null |
-  status | character varying(20) | | not null |
-  Indexes:
-  "Order_pkey" PRIMARY KEY, btree (id)
-  Foreign-key constraints:
-  "Order_product_id_fkey" FOREIGN KEY (product_id) REFERENCES product(id)
-  "Order_user_id_fkey" FOREIGN KEY (user_id) REFERENCES user_info(id)
+                        Table "public.orders"
+   Column   |          Type          | Collation | Nullable | Default 
+------------+------------------------+-----------+----------+---------
+ id         | integer                |           | not null | 
+ user_id    | integer                |           | not null | 
+ product_id | integer                |           | not null | 
+ quantity   | integer                |           | not null | 
+ status     | character varying(255) |           | not null | 
+Indexes:
+    "orders_pkey" PRIMARY KEY, btree (id, product_id)
+Foreign-key constraints:
+    "orders_product_id_fkey" FOREIGN KEY (product_id) REFERENCES products(id)
+    "orders_user_id_fkey" FOREIGN KEY (user_id) REFERENCES user_info(id)
